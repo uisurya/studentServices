@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  function msg(){
+  var fname=document.student_form.fname.value;
+  if (fname==""){
+  alert("please enter value for name");
+  return false;}
+  var dob=document.student_form.dob.value;
+  if (dob==""){
+  alert("enter dob");
+  return false;}
+
+  var gender=document.student_form.gender.value;
+  if (gender==""){
+  alert("select gender");
+  return false;}
+  var phno=document.student_form.phno.value;
+  alert(phno);
+  return false;
+  }
+
+</script>
+</head>
+<body>
+<form  name="student_form">
+  <label>enter name:</label>
+  <input type="text" name="fname"><br><br>
+  <label>DOB:</label>
+  <input type="date" name="dob"><br><br>
+  <label>gender:</label>
+  <input type="radio" name="gender" value="male">male
+  <input type="radio" name="gender" value="female">female<br><br>
+  <label>address:</label>
+  <textarea rows="5" cols="5"></textarea><br><br>
+  <label>phone number:</label>
+  <input type="number" name="phno"><br><br>
+  <label>email:</label>
+  <input type="email" name="email"><br><br>
+  <input type="submit" onclick="msg()" name="submit">        <input type="reset" name="reset">
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  function validateForm(){
+   alert("test");
+  var name=document.sform.fname.value;
+  document.write("<h1>"+name+"<h1>");
+  if (name==null || name==""){
+  alert("blank space not valid");
+  return false;
+  }
+  return true;
+  }
+  </script>
+</head>
+<body>
+<form name="sform" method="post">
+  <label>name</label>
+  <input type="text" name="fname" required><br><br>
+  <label>dob:</label>
+  <input type="date" name="dob"><br><br>
+  <label>gender</label>
+  <input type="radio" name="gender" value="male">male
+  <input type="radio" name="gender" value="female">female<br><br>
+  <label>address:</label>
+  <textarea rows="5" cols="5" disabled></textarea><br><br>
+  <label>phone number:</label>
+  <input type="number" name="phnum"><br><br>
+  <label>email:</label>
+  <input type="email" name="email"><br><br>
+  <input type="submit"  onclick="validateForm()" name="submit"  >
+  <input type="reset" name="reset">
+
+
+</form>
+</body>
+</html>

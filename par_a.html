@@ -1,0 +1,84 @@
+<!doctype>
+<html>
+<head>
+    <title>html page</title>
+    <script>
+    function dataValidation(){
+       var x=document.f1.fname.value;
+
+       if (x==""){
+      // alert ("fname must not be empty");
+       document.write("<h1>fname must not be empty<h1>");
+       return false;
+       }
+       var xdob=document.f1.dob.value;
+       if (xdob==""){
+       alert("dob must not be empty");
+       return false;
+       }
+       var xgender=document.f1.gender.value;
+       if (xgender==""){
+       alert("select any gender");
+       return false;
+       }
+       var xc=document.f1.course.value
+       if (xc=="none"){
+       alert ("select any course");
+       return false;
+       }
+
+       return true;
+
+
+ 
+   }
+    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+     <h2>Student Form</h2>
+<form name="f1" action="serverpage.html"  onsubmit="return dataValidation()">
+<div class="row">
+  <div class="col-sm-4" style="background-color:lavender;"><label>Name:</label></div>
+  <div class="col-sm-4" style="background-color:lavenderblush;"><input type="text"  name="fname"></div>
+</div>
+ <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;"><label>dob:</label></div>
+    <div class="col-sm-4" style="background-color:lavenderblush;"><input type="date"  name="dob"></div>
+ </div>
+ <div class="row">
+    <div class="col-sm-4" style="background-color:lavender;"> <label>Gender:</label></div>
+    <div class="col-sm-4" style="background-color:lavenderblush;"><input type="radio" name="gender"  value="male">male
+    <input type="radio" name="gender"  value="female">female</div>
+</div>
+<div class="row">
+    <div class="col-sm-4" style="background-color:lavender;"><label>Course:</label></div>
+    <div class="col-sm-4" style="background-color:lavenderblush;"><div id="courseList"></div></div>
+</div>
+        <script>
+            const xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (this.status === 200) {
+            document.getElementById('courseList').innerHTML = xhr.responseText;
+        } else {
+           document.getElementById('courseList').innerHTML="connection failed"
+  }
+  };
+  xhr.open('get', 'courseList.html');
+  xhr.send() ;
+        </script>
+
+
+<br><br>
+
+    <input type="submit" name="submit" >
+    <input type="reset" name="reset>">
+
+</form>
+</div>
+</body>
+</html>
